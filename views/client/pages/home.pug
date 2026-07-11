@@ -1,0 +1,349 @@
+extends ../layouts/default.pug
+include ../mixins/product.pug
+include ../mixins/section-5.pug
+include ../mixins/blog.pug
+
+block main
+  // Section 1
+  section.section-1
+    .container
+      .inner-wrap
+        h1.inner-title(
+          data-aos-duration="800" 
+          data-aos="fade-up"
+          )
+          | Du lịch Châu Á - Khám phá Mỹ, Úc, Âu
+          br
+          | Đi nơi đâu bạn muốn
+        p.inner-desc(
+          data-aos-delay="150" 
+          data-aos-duration="800" 
+          data-aos="fade-up"
+          )
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+        form.inner-form(
+          data-aos-delay="300" 
+          data-aos-duration="800" 
+          data-aos="fade-up" 
+          action=""
+          form-search
+          )
+          .inner-box.inner-address
+            .inner-input-group
+              img.inner-icon(src="/assets/images/icon-address.svg")
+              input.inner-input(
+                placeholder="Bạn muốn đi đâu?" 
+                type="text"
+                name="locationTo"
+                )
+              i.fa-solid.fa-angle-down.inner-down
+            .inner-suggest
+              .inner-suggest-title
+                i.fa-solid.fa-location-dot
+                | Địa Điểm Hot
+              .inner-suggest-list
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-1.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Nhật Bản
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-2.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Phú Quốc
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+                .inner-item
+                  .inner-item-image
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
+                  .inner-item-content
+                    .inner-item-title Singapore
+                    .inner-item-desc 50 tours
+          .inner-box.inner-user
+            .inner-input-group
+              img.inner-icon(src="/assets/images/icon-user.svg")
+              input.inner-input(
+                readonly="" 
+                value="NL: 1, TE: 0, EB: 0" 
+                placeholder="Số lượng" 
+                type="text"
+                )
+              i.fa-solid.fa-angle-down.inner-down
+            .inner-quantity
+              .inner-item
+                .inner-label Người lớn
+                .inner-count
+                  span.inner-down -
+                  input.inner-number(
+                    value="0" 
+                    readonly
+                    name="stockAdult"
+                    )
+                  span.inner-up +
+              .inner-item
+                .inner-label Trẻ em
+                .inner-count
+                  span.inner-down -
+                  input.inner-number(
+                    value="0" 
+                    readonly
+                    name="stockChildren"
+                    )
+                  span.inner-up +
+              .inner-item
+                .inner-label Em bé
+                .inner-count
+                  span.inner-down -
+                  input.inner-number(
+                    value="0" 
+                    readonly
+                    name="stockBaby"
+                    )
+                  span.inner-up +
+          .inner-box.inner-calendar
+            .inner-input-group
+              img.inner-icon(src="/assets/images/icon-calendar.svg")
+              input.inner-input(
+                placeholder="Lịch khởi hành" 
+                type="date"
+                name="departureDate"
+                )
+          button.inner-button
+            i.fa-solid.fa-magnifying-glass
+            | Tìm Kiếm
+  // End Section 1
+  // Section 2
+  .section-2(
+    data-aos-duration="800" 
+    data-aos="fade-up"
+    )
+    .container
+      .inner-wrap
+        .inner-info
+          h2.inner-title
+            | ƯU ĐÃI 2025
+            br
+            | TOUR GIỜ CHÓT
+          .inner-desc Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          .inner-clock-title Kết thúc sau
+          .inner-clock-number(clock-expire="2025-10-20T20:00:00")
+            .inner-item
+              .inner-number 00
+              .inner-label Ngày
+            .inner-item
+              .inner-number 00
+              .inner-label Giờ
+            .inner-item
+              .inner-number 00
+              .inner-label Phút
+            .inner-item
+              .inner-number 00
+              .inner-label Giây
+          .inner-discount-title GIẢM ĐẾN
+          .inner-discount-price
+            | 990.000
+            span.inner-unit đ
+        .inner-list
+          .swiper.swiper-section-2
+            .swiper-wrapper
+              each item in tourListSection2
+                .swiper-slide
+                  +product-item(item)
+  // End Section 2
+  // Section 3
+  .section-3
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) Khuyến Mại Bùng Nổ - Đánh Tan Nóng Bức
+      .inner-wrap(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        .swiper.swiper-section-3
+          .swiper-wrapper
+            .swiper-slide
+              .inner-item
+                a(href="#")
+                  img(
+                    alt="" 
+                    src="/assets/images/banner-1.png"
+                    )
+            .swiper-slide
+              .inner-item
+                a(href="#")
+                  img(
+                    alt="" 
+                    src="/assets/images/banner-2.png"
+                    )
+            .swiper-slide
+              .inner-item
+                a(href="#")
+                  img(
+                    alt="" 
+                    src="/assets/images/banner-3.png"
+                    )
+            .swiper-slide
+              .inner-item
+                a(href="#")
+                  img(
+                    alt="" 
+                    src="/assets/images/banner-2.png"
+                    )
+            .swiper-slide
+              .inner-item
+                a(href="#")
+                  img(
+                    alt="" 
+                    src="/assets/images/banner-3.png"
+                    )
+          .swiper-pagination
+  // End Section 3
+  // Section 4
+  if(categorySection4)
+    .section-4
+      .container
+        h2.box-title(
+          data-aos-duration="800" 
+          data-aos="fade-up"
+          ) #{categorySection4.name}
+        if (tourListSection4.length > 0)
+          .inner-wrap(
+            data-aos-delay="150" 
+            data-aos-duration="800" 
+            data-aos="fade-up"
+            )
+              each item in tourListSection4
+                +product-item(item)
+        else
+          div.no-data(
+            data-aos-delay="150" 
+            data-aos-duration="800" 
+            data-aos="fade-up"
+          ) Không có dữ liệu.
+        .inner-button(
+          data-aos-delay="300" 
+          data-aos-duration="800" 
+          data-aos="fade-up"
+          )
+          a.button-outline(href=`/category/${categorySection4.slug}`) Xem tất cả
+  // End Section 4
+  // Section 5
+  +section-5("/assets/images/banner-4.png")
+  // End Section 5
+  // Section 6
+  .section-4
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) Tour Nước Ngoài
+      .inner-wrap(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        //- +product-item()
+      .inner-button(
+        data-aos-delay="300" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        a.button-outline(href="#") Xem tất cả
+  // End Section 6
+  // Section 7
+  +section-5("/assets/images/banner-5.png")
+  // End Section 7
+  // Section 8
+  .section-8
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) Tin Tức Mới
+      .inner-wrap(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        +blog-item-1()
+        +blog-item-2()
+        +blog-item-1()
+        +blog-item-1()
+        +blog-item-1()
+  // End Section 8

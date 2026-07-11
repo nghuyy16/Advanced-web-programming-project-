@@ -1,0 +1,20 @@
+mixin box-breadcrumb(breadcrumb)
+  - const lastItem = breadcrumb[breadcrumb.length - 1];
+  .box-breadcrumb
+    .inner-image
+      img(
+        alt=lastItem.name
+        src=lastItem.avatar
+        )
+    .inner-content
+      .container
+        h1.inner-title #{lastItem.name}
+        nav.inner-links
+          ul
+            li
+              a(href="/") Trang Chủ
+              i.fa-solid.fa-angles-right
+            each item in breadcrumb
+              li
+                a(href=`/category/${item.slug}`) #{item.name}
+                i.fa-solid.fa-angles-right

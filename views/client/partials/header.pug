@@ -1,0 +1,40 @@
+header.header
+  .container
+    .inner-wrap
+      // Menu Mobile
+      button.inner-menu-mobile
+        i.fa-solid.fa-bars
+      // Logo
+      .inner-logo
+        a(href="/")
+          img(
+            alt=settingWebsiteInfo.websiteName
+            src=settingWebsiteInfo.logo
+            )
+      // Menu
+      nav.inner-menu
+        .inner-overlay
+        ul
+          li
+            a.active(href="/") Trang Chủ
+          each item in categoryList
+            li
+              a(href=`/category/${item.slug}`) #{item.name}
+              if (item.children && item.children.length > 0)
+                i.fa-solid.fa-caret-down
+                ul
+                  each itemChild in item.children
+                    li
+                      a(href=`/category/${itemChild.slug}`) #{itemChild.name}
+          li
+            a(href="#") Tin Tức
+          li
+            a(href="#") Liên Hệ
+      // Cart
+      .inner-cart
+        a(href="/cart")
+          img(
+            alt="" 
+            src="/assets/images/icon-cart.svg"
+            )
+          span(mini-cart) 0

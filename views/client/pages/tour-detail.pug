@@ -1,0 +1,147 @@
+extends ../layouts/default.pug
+include ../mixins/box-breadcrumb.pug
+
+block main
+  +box-breadcrumb(breadcrumb)
+
+  .section-10
+    .container
+      .inner-wrap
+        .inner-left
+          // Danh sách ảnh
+          .box-images
+            .inner-images-main
+              .swiper.swiper-box-images-main
+                .swiper-wrapper
+                  each image in tourDetail.images
+                    .swiper-slide
+                      .inner-image
+                        img(
+                          alt="" 
+                          src=image
+                          )
+            .inner-images-thumb
+              .swiper.swiper-box-images-thumb
+                .swiper-wrapper
+                  each image in tourDetail.images
+                    .swiper-slide
+                      .inner-image
+                        img(
+                          alt="" 
+                          src=image
+                          )
+          // Hết Danh sách ảnh
+          // Thông Tin Tour
+          .box-tour-info
+            .inner-title Thông Tin Tour
+            .inner-content !{tourDetail.information}
+            .inner-read-more
+              button.button-outline Xem tất cả
+          // Hết Thông Tin Tour
+          // Lịch Trình Tour
+          .box-tour-schedule
+            .inner-title-main Lịch Trình Tour
+            .inner-list
+              each item in tourDetail.schedules
+                .inner-item
+                  .inner-title #{item.title}
+                  .inner-content !{item.description}
+          // Hết Lịch Trình Tour
+        .inner-right
+          .box-tour-detail
+            .inner-title-main Chuyến Đi Của Bạn
+            .inner-product
+              .inner-image
+                img(
+                  alt=tourDetail.name
+                  src=tourDetail.avatar
+                  )
+              .inner-info
+                .inner-title #{tourDetail.name}
+                //- .inner-rating
+                //-   .inner-stars
+                //-     i.fa-solid.fa-star
+                //-     i.fa-solid.fa-star
+                //-     i.fa-solid.fa-star
+                //-     i.fa-solid.fa-star
+                //-     i.fa-regular.fa-star
+                //-   .inner-number 500 lượt đánh giá
+            .inner-meta
+              //- .inner-item
+              //-   i.fa-solid.fa-ticket-simple
+              //-   span Mã Tour:
+              //-   span.inner-hl 28T00001
+              .inner-item
+                i.fa-solid.fa-calendar-days
+                span Thời Gian:
+                span.inner-hl #{tourDetail.time}
+              .inner-item
+                i.fa-solid.fa-car
+                span Phương Tiện:
+                span.inner-hl #{tourDetail.vehicle}
+              .inner-item
+                i.fa-solid.fa-calendar-days
+                span Ngày Khởi Hành:
+                span.inner-hl #{tourDetail.departureDateFormat}
+            .inner-group
+              .inner-label Khởi Hành Tại:
+              select(name="locationFrom")
+                each item in tourDetail.cityList
+                  option(value=item.id) #{item.name}
+            .inner-group
+              .inner-label Số Lượng Hành Khách
+              .inner-list
+                .inner-item
+                  .inner-item-label Người lớn:
+                  .inner-item-input
+                    input(
+                      value="1" 
+                      type="number"
+                      min="0"
+                      max=tourDetail.stockAdult
+                      input-quantity="stockAdult"
+                      data-price=tourDetail.priceNewAdult
+                      name="quantityAdult"
+                      )
+                  .inner-item-price
+                    span(label-quantity="stockAdult") 1
+                    span x
+                    span.inner-hl #{tourDetail.priceNewAdult.toLocaleString("vi-VN")}
+                .inner-item
+                  .inner-item-label Trẻ em:
+                  .inner-item-input
+                    input(
+                      value="0" 
+                      type="number"
+                      min="0"
+                      max=tourDetail.stockChildren
+                      input-quantity="stockChildren"
+                      data-price=tourDetail.priceNewChildren
+                      name="quantityChildren"
+                      )
+                  .inner-item-price
+                    span(label-quantity="stockChildren") 0
+                    span x
+                    span.inner-hl #{tourDetail.priceNewChildren.toLocaleString("vi-VN")}
+                .inner-item
+                  .inner-item-label Em bé:
+                  .inner-item-input
+                    input(
+                      value="0" 
+                      type="number"
+                      min="0"
+                      max=tourDetail.stockBaby
+                      input-quantity="stockBaby"
+                      data-price=tourDetail.priceNewBaby
+                      name="quantityBaby"
+                      )
+                  .inner-item-price
+                    span(label-quantity="stockBaby") 0
+                    span x
+                    span.inner-hl #{tourDetail.priceNewBaby.toLocaleString("vi-VN")}
+            .inner-total
+              .inner-label Tổng cộng:
+              .inner-price
+                span(total-price) #{tourDetail.priceNewAdult.toLocaleString("vi-VN")}
+                span đ
+            button.inner-button-add-cart(tour-id=tourDetail.id) Thêm Vào Giỏ Hàng
