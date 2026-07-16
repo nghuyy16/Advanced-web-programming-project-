@@ -116,7 +116,6 @@ module.exports.forgotPassword = async (req, res) => {
 module.exports.forgotPasswordPost = async (req, res) => {
   const { email } = req.body;
 
-  // Kiểm tra email có tồn tại trong CSDL
   const existAccount = await AccountAdmin.findOne({
     email: email,
     status: "active"
@@ -130,7 +129,6 @@ module.exports.forgotPasswordPost = async (req, res) => {
     return;
   }
 
-  // Kiểm tra email đã tồn tại trong ForgotPassword hay chưa
   const existEmailInForgotPassword = await ForgotPassword.findOne({
     email: email
   })
@@ -143,10 +141,10 @@ module.exports.forgotPasswordPost = async (req, res) => {
     return;
   }
 
-  // Tạo mã OTP
+ 
   const otp = generateRandomNumber(6);
 
-  // Lưu vào CSDL: email và otp (lưu trong 5 phút)
+
   const newRecord = new ForgotPassword({
     email: email,
     otp: otp,
@@ -154,7 +152,6 @@ module.exports.forgotPasswordPost = async (req, res) => {
   });
   await newRecord.save();
 
-  // Gửi mã OTP qua email
   const title = `Mã OTP lấy lại mật khẩu`;
   const content = `Mã OTP của bạn là <b style="color: green; font-size: 20px;">${otp}</b>. Mã OTP có hiệu lực trong 5 phút, vui lòng không cung cấp cho bất kỳ ai.`;
   mailHelper.sendMail(email, title, content);
@@ -174,7 +171,7 @@ module.exports.otpPassword = async (req, res) => {
 module.exports.otpPasswordPost = async (req, res) => {
   const { email, otp } = req.body;
 
-  // Kiểm tra email có tồn tại trong CSDL
+
   const existAccount = await AccountAdmin.findOne({
     email: email,
     status: "active"
@@ -188,7 +185,7 @@ module.exports.otpPasswordPost = async (req, res) => {
     return;
   }
 
-  // Xác thực mã OTP
+
   const existRecordInForgotPassword = await ForgotPassword.findOne({
     email: email,
     otp: otp,
