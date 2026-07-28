@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const slug = require('mongoose-slug-updater');
 mongoose.plugin(slug);
-
+// tạo schema cho danh mục 
 const schema = new mongoose.Schema({
   name: String,
   parent: String,
