@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// tạp schema cho đơn hàng
 const schema = new mongoose.Schema(
   {
     code: String,

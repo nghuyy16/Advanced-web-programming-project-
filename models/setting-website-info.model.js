@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// tạo schema cho thông tin website
 const schema = new mongoose.Schema(
   {
     websiteName: String,
