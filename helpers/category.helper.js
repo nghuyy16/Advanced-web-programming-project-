@@ -2,7 +2,7 @@ const Category = require("../models/category.model");
 
 // buildCategoryTree
 const buildCategoryTree = (categories, parentId = "") => {
-  // Tạo một mảng để lưu các danh mục con
+  // Tạo một mảng để lưu các danh mục con jfsibfwoefbwefweqgfgewg
   const tree = [];
 
   // Lặp qua từng danh mục trong mảng
